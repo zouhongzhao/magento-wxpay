@@ -10,6 +10,7 @@ magento1.x 微信支付插件
   
 ## 帮助
 有问题可以加我qq问我: 529894459
+Magento2专业中文社区: [http://bbs.mallol.cn/](http://bbs.mallol.cn/)
 
 ##
 ![image](https://github.com/zouhongzhao/magento-wxpay/blob/master/wxpay.gif)
