@@ -8,5 +8,8 @@ magento1.x 微信支付插件
   * 查询退款状态
   * 退款列表
   
+## 帮助
+有问题可以加我qq问我: 529894459
+
 ##
 ![image](https://github.com/zouhongzhao/magento-wxpay/blob/master/wxpay.gif)
