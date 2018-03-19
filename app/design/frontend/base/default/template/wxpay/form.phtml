@@ -1,0 +1,15 @@
+<?php 
+$code = $this->getMethodCode();
+$title = Mage::helper('wxpay')->getConfigData('title');
+$description = Mage::helper('wxpay')->getConfigData('description');
+?>
+<fieldset class="form-list">
+    <div id="payment_form_<?php echo $code ?>" style="display:none">
+    	<div>
+            <?php //echo $this->getMethodLabelAfterHtml()?>
+    	</div>
+        <div>
+            <?php echo $description;?> 
+        </div>
+    </div>
+</fieldset>

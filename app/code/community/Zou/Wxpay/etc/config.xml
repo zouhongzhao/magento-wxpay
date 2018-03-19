@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Zou_Wxpay>
+			<version>1.0.2</version>
+		</Zou_Wxpay>
+	</modules>
+
+	<global>
+		<models>
+			<wxpay>
+				<class>Zou_Wxpay_Model</class>
+				<resourceModel>wxpay_mysql4</resourceModel>
+			</wxpay>
+			<wxpay_mysql4>
+	           <class>Zou_Wxpay_Model_Resource_Mysql4</class>
+	           <entities>
+	               <refund>
+	                   <table>wxpay_refunds</table>
+	               </refund>
+	           </entities>
+	        </wxpay_mysql4>
+		</models>
+
+		<blocks>
+			<wxpay>
+				<class>Zou_Wxpay_Block</class>
+			</wxpay>
+		</blocks>
+
+		<resources>
+			<wxpay_setup>
+				<setup>
+					<module>Zou_Wxpay</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</wxpay_setup>
+			<wxpay_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</wxpay_write>
+			<wxpay_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</wxpay_read>
+		</resources>
+		<helpers>
+			<wxpay>
+				<class>Zou_Wxpay_Helper</class>
+			</wxpay>
+		</helpers>
+		<events>
+			<sales_model_service_quote_submit_success>
+				<observers>
+					<wxpay_sales_model_service_quote_submit_success>
+							<type>singleton</type>
+							<class>Zou_Wxpay_Model_Observer</class>
+							<method>sales_model_service_quote_submit_success</method>
+					</wxpay_sales_model_service_quote_submit_success>
+				</observers>
+			</sales_model_service_quote_submit_success>
+		</events>
+	</global>
+
+
+	<frontend>
+		<routers>
+			<wxpay>
+				<use>standard</use>
+				<args>
+					<module>Zou_Wxpay</module>
+					<frontName>wxpay</frontName>
+				</args>
+			</wxpay>
+		</routers>
+		<translate>
+			<modules>
+				<Zou_Wxpay>
+					<files>
+						<default>Zou_Wxpay.csv</default>
+					</files>
+				</Zou_Wxpay>
+			</modules>
+		</translate>
+		<layout>
+            <updates>
+                <wxpay>
+                    <file>zou/wxpay.xml</file>
+                </wxpay>
+            </updates>
+        </layout>
+	</frontend>
+	<admin>
+        <routers>
+            <wxpay>
+                <use>admin</use>
+                <args>
+                    <module>Zou_Wxpay</module>
+                    <frontName>wxpay</frontName>
+                </args>
+            </wxpay>
+        </routers>
+    </admin>
+
+	<adminhtml>
+		<menu>
+			<wxpay module="wxpay">
+				<title>Wxpay</title>
+				<sort_order>80</sort_order>
+				<children>
+					<list module="wxpay">
+						<title>Wxpay Refund List</title>
+						<sort_order>0</sort_order>
+						<action>wxpay/adminhtml_refund</action>
+					</list>
+				</children>
+			</wxpay>
+		</menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                    	<wxpay module="wxpay">
+							<title>Wxpay</title>
+							<sort_order>103</sort_order>
+							<children>
+								<list module="wxpay">
+									<title>Wxpay Refund List</title>
+									<sort_order>0</sort_order>
+								</list>
+							</children>
+						</wxpay>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <wxpay>
+                                            <title>Wxpay</title>
+                                        </wxpay>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+		<translate>
+			<modules>
+				<Zou_Wxpay>
+					<files>
+						<default>Zou_Wxpay.csv</default>
+					</files>
+				</Zou_Wxpay>
+			</modules>
+		</translate>
+		<layout>
+            <updates>
+                <wxpay>
+                    <file>zou/wxpay.xml</file>
+                </wxpay>
+            </updates>
+        </layout>
+	</adminhtml>
+
+	<default>
+		<payment>
+			<wxpay>
+				<active>0</active>
+				<model>wxpay/pay</model>
+				<payment_action>authorize</payment_action>
+				<title>微信支付</title>
+				<order_status>pending</order_status>
+				<description>You will be redirected to wx payment when you place an order.</description>
+				<sort_order>0</sort_order>
+			</wxpay>
+		</payment>
+	</default>
+</config>

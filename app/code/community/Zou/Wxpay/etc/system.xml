@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<payment>
+			<groups>
+				<wxpay translate="label" module="wxpay">
+					<label>Wxpay Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>101</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+					 	<active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+						<title translate="label,comment">
+							<label>Title</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<mch_id translate="label,comment">
+							<label>Mch Id</label>
+							<comment>
+								<![CDATA[微信支付商户号 PartnerID 通过微信支付商户资料审核后邮件发送]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</mch_id>
+						<app_id translate="label,comment">
+							<label>App Id</label>
+							<comment>
+								<![CDATA[公众号APPID 通过微信支付商户资料审核后邮件发送]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</app_id>
+						<app_key translate="label,comment">
+							<label>App Key</label>
+							<comment>
+								<![CDATA[公众号APP Key 微信支付申请对应的公众号的APP Key]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>51</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</app_key>
+						<api_key translate="label,comment">
+							<label>Api Secret Key</label>
+							<comment>
+								<![CDATA[<a href="https://pay.weixin.qq.com" target="_blank">https://pay.weixin.qq.com</a>帐户设置-安全设置-API安全-API密钥-设置API密钥]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</api_key>
+						<!-- <transaction_url translate="label,comment">
+							<label>Transaction Url</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</transaction_url> -->
+						<error_report_receivers translate="label">
+                            <label>Error Report Receivers</label>
+                            <comment>
+								<![CDATA[
+								Use comma as separator when there're more than 1 receiver.
+								]]>
+							</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <validate>required-entry</validate>
+                            <show_in_store>1</show_in_store>
+                        </error_report_receivers>
+                        <payment_action translate="label">
+						    <label>Payment Action</label>
+						    <frontend_type>select</frontend_type>
+						    <source_model>paygate/authorizenet_source_paymentAction</source_model>
+						    <sort_order>90</sort_order>
+						    <show_in_default>1</show_in_default>
+						    <show_in_website>1</show_in_website>
+						</payment_action>
+						<order_status translate="label">
+                            <label>New Order Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+						<sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+					</fields>
+				</wxpay>
+			</groups>
+		</payment>
+	</sections>
+</config>
