@@ -1,5 +1,6 @@
 # magento-wxpay
 magento1.x 微信支付插件
+实测版本 1.9.3.6
 
 ## 功能
   * 扫码支付
